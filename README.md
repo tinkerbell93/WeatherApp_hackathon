@@ -10,8 +10,6 @@
 
 
 
-
-
 ## 목표
 
 1. HTML, CSS 최소화, JS 기능 구현
@@ -160,13 +158,9 @@ OpenWeatherMap API
 
   [Montserrat]([https://fonts.google.com/specimen/Montserrat?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom](https://fonts.google.com/specimen/Montserrat?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom))
 
-  [Noto Sans KR]([https://fonts.google.com/specimen/Noto+Sans+KR?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom](https://fonts.google.com/specimen/Noto+Sans+KR?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom)) - 한글지원
-
   [Nanum Gothic]([https://fonts.google.com/specimen/Nanum+Gothic?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom](https://fonts.google.com/specimen/Nanum+Gothic?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom)) - 한글지원
 
   [Nanum Myeongjo]([https://fonts.google.com/specimen/Nanum+Myeongjo?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom](https://fonts.google.com/specimen/Nanum+Myeongjo?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom)) - 한글지원
-
-  [Bungee Shade]([https://fonts.google.com/specimen/Bungee+Shade?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom&query=bungee+sh](https://fonts.google.com/specimen/Bungee+Shade?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom&query=bungee+sh))
 
   [Wallpoet]([https://fonts.google.com/specimen/Wallpoet?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+%EA%B0%80%EB%82%98%EB%8B%A4&preview.text_type=custom&query=wall](https://fonts.google.com/specimen/Wallpoet?sidebar.open&selection.family=Balsamiq+Sans|Nanum+Myeongjo&preview.text=03:27:53+abc+가나다&preview.text_type=custom&query=wall))
 
@@ -190,9 +184,11 @@ OpenWeatherMap API
 
 - openWeathApi에서 제공하는 날씨 종류 알아보기
 
-- meta????
+- meta tag?
 
 - 세부레이아웃 구상
+
+  반응형
 
 
 
