@@ -111,3 +111,5 @@ https://chrome.google.com/webstore/detail/simple/ofpamglakelakiehjfhgfcikpponflg
   header, section 영역 구분 어떻게 할 것인지 ?
 
 - reset.css 어디까지 커스텀 할 것인지?
+
+- 필요 리소스 확인(이미지, 폰트 등.)
