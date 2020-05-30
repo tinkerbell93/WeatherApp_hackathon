@@ -207,16 +207,31 @@ OpenWeatherMap API
 ### 200530
 
 - Hours Display 
-  1. 가현님 defalut 상태 까지 구현
-  2. 우성님 그다음 24 -> 12 / 12 -> 24 변경 구현
+  1. 가현 : defalut 상태 까지 구현
+  2. 우성: 그다음 24 -> 12 / 12 -> 24 변경 구현
 
-- 자바스크립트 변수 선언 rule 추가
+- 자바스크립트 변수 선언 rule
+
+  ```
+  1. 전역변수는 코드의 가장상단에 모아서 선언할 것.
+  2. 그 외, 꼭 전역에 필요하지 않은 변수들은 실행하는 함수 내에서 가장 상단에 선언할 것.
+  3. 함수내에 선언 시 매번 재 생성하는 불합리한 경우 상위스코프에 선언할 것.
+  ```
 
 - 자바스크립트 노드 생성 rule
 
-- 기상예보 업데이트 주기 시간
+  ```
+  1. text 노드 '만' 생성 시  : textContent 사용
+  2. element 노드 혹은 element 노드 + 텍스트 노드 생성 시 : innerHTML 사용
+  ```
 
-- openWeathApi에서 제공하는 날씨 종류
+- 기상예보 업데이트 주기 시간 
+
+  3시간마다 업데이트
+
+- openWeathApi에서 제공하는 날씨 종류에 따른 어플리케이션 이미지 구현
+
+  (switch문을 활용하여 아래 8가지 case로 분류)
 
   1. Thunderstorm
   2. Drizzle
@@ -243,6 +258,7 @@ OpenWeatherMap API
   <meta property="og:description" content="간단설명">
   <meta property="og:image" content="이미지경로">
   <meta property="og:url" content="사이트url">
+  <meta name="author" content="">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="robots" content="ALL">
@@ -250,35 +266,47 @@ OpenWeatherMap API
 
 - 모노스페이스 폰트 사용
 
-[ TODO ]
+<br>
 
-- Hours Display 
+> Next conference : 06  / 01 PM 17:00
+
+[ TODO ] 
+
+<우성/가현>
+
+- Hours Display
 
   setInterval , 즉시실행함수 중 어떤 것을 쓸건지 협의 필요
 
-- 기상예보 업데이트 주기 시간
+<우성>
 
-  3시간 마다 업데이트
+- 사이드바 기능 추가 
 
-- 사이드바 기능 추가
+  메인 배경 커스텀 이미지 업로드 기능 추가 & 배경 크기 설정
 
-  메인 배경 커스텀 이미지 업로드도 - 결정 지연
+- 로컬스토리지 구현방법 생각
 
-- meta - SEO 추가에 관한 내용 공부하고 추가 결정
+<가현>
 
-  https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/itemprop
+- 시간대에 따라서 나올 comment 구현방법 생각
 
-- 파비콘 이미지 소스
+<공통사항>
 
-- 이미지 업로드로 배경 커스컴 추가 여부
+- meta - SEO 추가에 관한 내용 추가 결정 
 
-- 세부 레이아웃 각자 구상 (반응형)
+  https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/itemprop 
 
-  모바일버전, PC버전
+- 파비콘 이미지 소스확인
 
-- 폰트 사용하려면 서버가 있어야 하는데 어떻게 구현할 것인가?
+- 세부 레이아웃 구상 (반응형)
 
-  웹폰트? 로컬스토리지?
+  1. 모바일버전
+  2. PC버전 
 
-- 모노스페이스 리스트 3개씩 생각하기
+- 폰트 구현방법 생각
+
+  1. 웹폰트 사용
+  2. 로컬스토리지 사용
+
+- 모노스페이스 폰트 3개씩 찾아오기
 
