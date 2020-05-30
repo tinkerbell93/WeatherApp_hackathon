@@ -15,7 +15,7 @@
 1. HTML, CSS 최소화, JS 기능 구현
 2. 시간내에 완성된 페이지 구현 
 3. 팀원들간의 깃헙 사용
-4. Weather API 사용
+4. OpenWeatherMap API 사용
 5. 가독성 있는 코드 작성
 6. 오류 최소화
 
@@ -41,8 +41,9 @@
 
 ### Optional
 
+- 시계
+  - 시간대 별로 글자 출력
 - 날씨 
-  - 미세먼지
   - 위치 선정
 - 사이드 바
   - 폰트 수정
@@ -76,6 +77,13 @@ OpenWeatherMap API
 - 네이밍 규칙
   - 변수 : 카멜 케이스
   - 생성자 함수 : 파스칼 케이스
+- 변수 선언 rule
+  1. 전역변수는 코드의 가장상단에 모아서 선언할 것.
+  2. 그 외, 꼭 전역에 필요하지 않은 변수들은 실행하는 함수 내에서 가장 상단에 선언할 것.
+  3. 함수내에 선언 시 매번 재 생성하는 불합리한 경우 상위스코프에 선언할 것.
+- 노드 생성 rule
+  1. ext 노드 '만' 생성 시 : textContent 사용
+  2. element 노드 혹은 element 노드 + 텍스트 노드 생성 시 : innerHTML 사용
 
 
 
@@ -189,4 +197,88 @@ OpenWeatherMap API
 - 세부레이아웃 구상
 
   반응형
+  
+- 폰트 사용하려면 서버가 있어야 하는데 어떻게 구현할 것인가?
+
+- 폰트는 width값이 동일한 MONO를 사용해야함
+
+
+
+### 200530
+
+- Hours Display 
+  1. 가현님 defalut 상태 까지 구현
+  2. 우성님 그다음 24 -> 12 / 12 -> 24 변경 구현
+
+- 자바스크립트 변수 선언 rule 추가
+
+- 자바스크립트 노드 생성 rule
+
+- 기상예보 업데이트 주기 시간
+
+- openWeathApi에서 제공하는 날씨 종류
+
+  1. Thunderstorm
+  2. Drizzle
+  3. Rain
+  4. Snow
+  5. Atmosphere
+  6. Clear
+  7. Clouds
+  8. default 알수없음
+
+  https://openweathermap.org/weather-conditions  참고
+
+- meta tag
+
+  ```html
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- edge유저를 위한 meta -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  
+  <!-- SEO 최적화 -->
+  <meta property="og:title" content="제목">
+  <meta property="og:description" content="간단설명">
+  <meta property="og:image" content="이미지경로">
+  <meta property="og:url" content="사이트url">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="robots" content="ALL">
+  ```
+
+- 모노스페이스 폰트 사용
+
+[ TODO ]
+
+- Hours Display 
+
+  setInterval , 즉시실행함수 중 어떤 것을 쓸건지 협의 필요
+
+- 기상예보 업데이트 주기 시간
+
+  3시간 마다 업데이트
+
+- 사이드바 기능 추가
+
+  메인 배경 커스텀 이미지 업로드도 - 결정 지연
+
+- meta - SEO 추가에 관한 내용 공부하고 추가 결정
+
+  https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/itemprop
+
+- 파비콘 이미지 소스
+
+- 이미지 업로드로 배경 커스컴 추가 여부
+
+- 세부 레이아웃 각자 구상 (반응형)
+
+  모바일버전, PC버전
+
+- 폰트 사용하려면 서버가 있어야 하는데 어떻게 구현할 것인가?
+
+  웹폰트? 로컬스토리지?
+
+- 모노스페이스 리스트 3개씩 생각하기
 
