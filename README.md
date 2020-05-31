@@ -82,7 +82,7 @@ OpenWeatherMap API
   2. 그 외, 꼭 전역에 필요하지 않은 변수들은 실행하는 함수 내에서 가장 상단에 선언할 것.
   3. 함수내에 선언 시 매번 재 생성하는 불합리한 경우 상위스코프에 선언할 것.
 - 노드 생성 rule
-  1. ext 노드 '만' 생성 시 : textContent 사용
+  1. text 노드 '만' 생성 시 : textContent 사용
   2. element 노드 혹은 element 노드 + 텍스트 노드 생성 시 : innerHTML 사용
 
 
