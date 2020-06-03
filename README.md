@@ -233,7 +233,7 @@ OpenWeatherMap API
 
   (switch문을 활용하여 아래 8가지 case로 분류)
 
-  1. Thunderstorm
+  1. Thunderstorm 
   2. Drizzle
   3. Rain
   4. Snow
@@ -309,4 +309,104 @@ OpenWeatherMap API
   2. 로컬스토리지 사용
 
 - 모노스페이스 폰트 3개씩 찾아오기
+
+
+
+### 200601
+
+- Hours Display
+
+  setInterval
+
+- 사이드바 기능 추가 
+
+  메인 배경 커스텀 이미지 업로드 기능 추가 
+
+  배경 크기 설정 
+
+  웹폰트 설정
+
+  로컬스토리지 이용
+
+- 시간대에 따라서 나올 comment 구현방법 생각
+
+  // Good Morning 6 - 11
+
+​      // Good Afternoon 12 - 17
+
+​      // Good Evening  18 - 23
+
+​      // Good Night 00 - 5
+
+- `<meta name="robots" content="ALL">` 제외
+
+- 파비콘
+
+  ```html
+  <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/free-icon/sun_2917242?term=%EB%82%A0%EC%94%A8&page=1&position=4" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div> 
+  ```
+
+
+- 세부 레이아웃
+
+  - #clock
+
+    날짜 time태그 사용
+
+  - #weather
+
+    모바일 - 요일별 w 100%
+
+    날씨 아이콘 픽스
+
+    | 아이콘 명        | class 명 |
+    | ---------------- | -------- |
+    | Thunderstorm     | f016     |
+    | Drizzle          | f04e     |
+    | Rain             | f04e     |
+    | Snow             | f076     |
+    | Atmosphere       | f014     |
+    | Clear            | f00d     |
+    | Clouds           | f013     |
+    | default 알수없음 | f04c     |
+
+    날씨 업데이트 1시간 주기
+    
+  - #set
+  
+    오른쪽 슬라이드
+  
+    전체적인 폰트사이즈 크게
+  
+    선택은 radio
+  
+    세팅 버튼 이미지 - 폰트어썸
+  
+    ul > li
+  
+    세팅 기능은 모두 로컬스토리지로 관리
+  
+- 웹폰트 사용
+
+  'Noto Sans', 'Roboto Mono', 'B612 Mono', 'Cutive Mono'
+
+[ TODO ]
+
+<공통사항>
+
+- 파비콘 이미지 저작권 정보 처리?
+
+- 배경색 수정에 대하여 폰트 색상 처리?
+
+- 레이아웃
+
+  - #set
+
+    색상과 이미지를 지정해서 갈 것인지?
+
+    사용자가 선택하게 할 것인지?
+
+
+
+
 
