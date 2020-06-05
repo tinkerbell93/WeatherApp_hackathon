@@ -408,5 +408,15 @@ OpenWeatherMap API
 
 
 
+### 200605
 
+- 파비콘이미지 저작권 정보 넣지 않아도 되는 이미지로 처리
+
+- #set
+
+  background 색상을 타일선택으로 설정 (기존 `input type="color"`)
+
+- onload는 초기값 세팅해야 하는 세팅영역에 추가
+
+- 모듈 JS - 가현,우성 / 유비
 
