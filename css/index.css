@@ -1,14 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Cutive+Mono&family=Noto+Sans&family=Roboto+Mono&display=swap');
 
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Nanum Myeongjo', serif; */
-    /* font-family: 'Balsamiq Sans', cursive; */
-    /* font-family: 'Nanum Gothic', sans-serif; */
-    /* font-family: 'Wallpoet', cursive; */
+    font-family: 'Noto Sans', sans-serif;
+    /* font-family: 'B612 Mono', monospace; */
+    /* font-family: 'Cutive Mono', monospace; */
+    /* font-family: 'Roboto Mono', monospace; */ */
 }
