@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-export const obj = {
-  time: 100
-};
-export function foo() {
-  const x = 1;
-  console.log(x);
-  
-}
-=======
 // DOMs
 const $date = document.querySelector('#clock .date');
 const $time = document.querySelector('#clock .time');
@@ -54,11 +44,3 @@ setInterval(() => {
   };
 
 }, 1000);
-
-
-
-
-
-
-
->>>>>>> 3631fab3e55f4423d3d8d48d8b808c9b8499ed63
