@@ -10,7 +10,7 @@ const $currentlyBtn = $weather.querySelector(".currently_btn");
 const $city_select = $weather.querySelector(".city_select");
 
 const $weatherContents = $forecast.querySelectorAll(".weather_content");
-const $weatherIcons = $forecast.querySelectorAll(".weather_icon");
+const $weatherIcons = $forecast.querySelectorAll(".fas.fa-spinner");
 const $temps = $forecast.querySelectorAll(".temp");
 const $dayNmaes = $forecast.querySelectorAll(".day_name");
 
@@ -29,6 +29,9 @@ function geoSuccess(position) {
     .then(jsonData => jsonData);
   }
   async function getWeatherAll(lat, lng) {
+    $currentlyBtn.firstElementChild.className = "fas fa-spinner";
+    $currentlyBtn.disabled = true;
+    $city_select.disabled = true;
     let weatherData;
     let cityData;
     let koreaCityData;
@@ -84,8 +87,14 @@ function geoSuccess(position) {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
       const { coord } = cityObj[0];
       const { lat, lon } = coord;
+      $weatherIcons.forEach(icon => {
+        icon.className = "fas fa-spinner";
+      });
       getWeatherAll(lat, lon);
     });
+    $currentlyBtn.firstElementChild.className = "";
+    $currentlyBtn.disabled = false;
+    $city_select.disabled = false;
   }
   getWeatherAll(lat, lng);
 }
@@ -102,12 +111,3 @@ function init() {
   askForCoords();
 }
 init();
-window.addEventListener("click", e => {
-  const $effect = document.createElement("h6");
-  $effect.style.top = e.clientY + "px";
-  $effect.style.left = e.clientX + "px";
-  document.querySelector("body").appendChild($effect);
-  setTimeout(() => {
-    $effect.remove();
-  }, 1000);
-})
