@@ -1,7 +1,7 @@
 /* 초기화 */
 
 /* 숨긴콘텐츠 */
-.a11y-hidden {
+.a11y_hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -36,4 +36,62 @@ ul {
 button {
     padding: 0;
     cursor: pointer;
+}
+#weather {
+  width: 100%;
+}
+.forecast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.weather_content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+.weather_content:nth-child(1)
+{
+  font-size: 1.5em;
+}
+.weather_content i,
+.weather_content p {
+  width: 100%;
+}
+.weather_content i{
+  font-size: 3em;
+}
+.weather_content p{
+  margin: 0;
+}
+.weather_content .temp
+{
+  margin: 15px 0px 10px 0;
+}
+.weather_content #first {
+  font-size: 4em;
+}
+.currently {
+  text-align: center;
+}
+.city_container {
+  width: 100%;
+  text-align: center;
+}
+.city_select {
+  text-align: center;
+  display: inline-block;
+}
+.currently_btn {
+  margin-left: 30px;
+}
+@media(max-width: 1200px) {
+  .weather_content {
+   min-width: 100%;
+   font-size: 2em;
+  }
 }

@@ -14,11 +14,13 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/weather-icons.css">
+    <link rel="stylesheet" href="./css/weather-icons-wind.css">
     <script defer src=""></script>
     <script defer src=""></script>
+    <script defer src="./js/weather.mjs"></script>
     <script src="https://kit.fontawesome.com/33179a3595.js" crossorigin="anonymous"></script>
   </head>
-
 <body>
   <main>
     <h1></h1>
@@ -28,8 +30,63 @@
     <section class="">
       <h2></h2>
     </section>
-    <section class="">
-      <h2></h2>
+    <section id="weather">
+      <h2 class="a11y_hidden">날씨</h2>
+      <div class="weather_wrap">
+        <ul class="forecast">
+          <li class="weather_content">
+            <i class="weather_icon" id="first"></i>
+            <p class="temp"></p>
+            <p class="day_name"></p>
+          </li>
+          <li class="weather_content">
+            <i class="weather_icon"></i>
+            <p class="temp"></p>
+            <p class="day_name"></p>
+          </li>
+          <li class="weather_content">
+            <i class="weather_icon"></i>
+            <p class="temp"></p>
+            <p class="day_name"></p>
+          </li>
+          <li class="weather_content">
+            <i class="weather_icon"></i>
+            <p class="temp"></p>
+            <p class="day_name"></p>
+          </li>
+          <li class="weather_content">
+            <i class="weather_icon"></i>
+            <p class="temp"></p>
+            <p class="day_name"></p>
+          </li>
+        </ul>
+        <p class="currently"></p>
+        <div class="city_container">
+          <select class="city_select">
+            <optgroup label="도">
+              <option>경기도</option>
+              <option>강원도</option>
+              <option>충청북도</option>
+              <option>충청남도</option>
+              <option>경상북도</option>
+              <option>경상남도</option>
+              <option>전라북도</option>
+              <option>전라남도</option>
+              <option>제주도</option>
+            </optgroup>
+            <optgroup label="시">
+              <option>서울</option>
+              <option>부산</option>
+              <option>대구</option>
+              <option>인천</option>
+              <option>광주</option>
+              <option>대전</option>
+              <option>울산</option>
+            </optgroup>
+          </select>
+          <button class="currently_btn">현재 위치</button>
+        </div>
+      </div>
     </section>
   </main>
 </body>
