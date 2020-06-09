@@ -1,14 +1,12 @@
-
 #setting {
   position: fixed;
   top: 0;
   right: 0;
-  color: #000;
+  color: #fff;
   font-family: sans-serif; 
-  width: 40vw;
-  /* height: 100vh; */
-  background-color: rgba(38, 39, 38, 0.8);
-  border-radius: 20px 0 0 20px;
+  width: 20vw;
+  height: 100vh;
+  background-color: rgba(38, 39, 38, 0.95);
   padding: 30px;
   font-family: sans-serif;
   visibility: hidden;
@@ -21,6 +19,10 @@
   transform: none;
 }
 
+#setting ul li {
+  margin-bottom: 35px;
+}
+
 .btn_settingOpen {
   position: absolute;
   top: 10px;
@@ -30,13 +32,15 @@
 }
 
 p[class$="heading"] {
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: 900;
+  margin: 0.7em 0;
 }
 
 .hoursView_outerToggle {
   position: relative;
   vertical-align: middle;
-  width: 58px;
+  width: 50px;
   height: 22px;
   background-color: #aaa;
   border-radius: 20px;
@@ -58,12 +62,25 @@ p[class$="heading"] {
 }
 
 .isAct .hoursView_innerToggle {
-  transform: translateX(200%);
+  transform: translateX(28px);
   background-color: #fff;
 }
 
+.item_font select {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.item_fontColor input {
+  border-radius: 5px;
+  height: 40px;
+  width: 33.33%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
 .container_bgc {
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
 }
@@ -74,22 +91,41 @@ p[class$="heading"] {
 
 .item_backgroundColor label {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 33.33%;
+  height: 40px;
+  border: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: .2s;
 }
 
-label.select:before {
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  content: '★';
-  
+label[for="bgc_2"],
+label[for="bgc_5"],
+label[for="bgc_8"]{
+  border-right: 0;
+  border-left: 0; 
+}
+
+label[for="bgc_4"],
+label[for="bgc_5"],
+label[for="bgc_6"]{
+  border-top: 0;
+  border-bottom: 0; 
+}
+
+.container_bgc label:hover {
+  border: 5px solid #f1f1f1;
+}
+
+.container_bgc .select {
+  border: 5px solid #f1f1f1;
+  outline: 0;
 }
 
 .container_bgc > label:nth-of-type(1),
 .container_bgc > input:nth-of-type(1) {
   background-color: #0F4C81;
-  border-radius: 50px 0 0 0;
+  border-radius: 10px 0 0 0;
 }
 .container_bgc > label:nth-of-type(2),
 .container_bgc > input:nth-of-type(2) {
@@ -98,7 +134,7 @@ label.select:before {
 .container_bgc > label:nth-of-type(3),
 .container_bgc > input:nth-of-type(3) {
   background-color: #5F4B8B;
-  border-radius: 0 50px 0 0;
+  border-radius: 0 10px 0 0;
 }
 .container_bgc > label:nth-of-type(4),
 .container_bgc > input:nth-of-type(4) {
@@ -115,7 +151,7 @@ label.select:before {
 .container_bgc > label:nth-of-type(7),
 .container_bgc > input:nth-of-type(7) {
   background-color: #955251;
-  border-radius: 0 0 0 50px;
+  border-radius: 0 0 0 10px;
 }
 .container_bgc > label:nth-of-type(8),
 .container_bgc > input:nth-of-type(8) {
@@ -124,22 +160,39 @@ label.select:before {
 .container_bgc > label:nth-of-type(9),
 .container_bgc > input:nth-of-type(9) {
   background-color: #009473;
-  border-radius: 0 0 50px 0;
+  border-radius: 0 0 10px 0;
 
 }
 
 .item_state button {
-  font-size: 1.3em;
-  padding: 5px;
-  border: 1px solid;
+  font-size: 1em;
+  color: #333;
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 1px solid #242424;
   border-radius: 5px;
-  background-color: transparent;
+  margin-right: 5px;
+  transition: 0.2s;
+}
+
+.item_state button:hover {
+  background-color: rgb(170, 170, 170);
 }
 
 .btn_settingClose {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   font-size: 30px;
+  color: #fff;
+  position: absolute;
+  top: 8px;
+  right: 8px;
   background-color: transparent;
+}
+
+@media(max-width: 1200px) {
+  #setting {
+    width: 35vw;
+  }
+  p[class$="heading"] {
+    font-size: 20px;
+  }
 }
