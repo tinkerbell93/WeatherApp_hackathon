@@ -1,7 +1,6 @@
 //state
 let customStyles = [];
 let viewClass;
-let selectedBg;
 
 // DOMs
 const $main = document.querySelector('main');
