@@ -3,36 +3,26 @@ const $date = document.querySelector('#clock .date');
 const $time = document.querySelector('#clock .time');
 const $comment = document.querySelector('#clock .comment');
 
-// 날짜
 let Today = new Date();
-const year = Today.getFullYear();
-const month = Today.getMonth() + 1;
-const date = Today.getDate();
-const dayNams = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-const day = dayNams[Today.getDay()];
 
-// 날짜 출력
-$date.textContent = `${year}.${month}.${date}.${day}`;
+// FUNCTIONs
+// date
+const printDate = () => {
+  const year = Today.getFullYear();
+  const month = Today.getMonth() + 1;
+  const date = Today.getDate();
+  const dayNams = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  const day = dayNams[Today.getDay()];
 
-// 시계
-setInterval(() => {
-  // 시간
-  Today = new Date();
-  let hour = Today.getHours();
-  hour = hour < 10 ? `0${hour}` : hour;
-  let minute = Today.getMinutes();
-  minute = minute < 10 ? `0${minute}` : minute;
-  let second = Today.getSeconds();
-  second = second < 10 ? `0${second}` : second;
-  let ampm = hour < 12 ? 'AM' : 'PM';
+  // print date
+  $date.textContent = `${year}.${month}.${date}.${day}`;
+};
 
-  // 코멘트
+// comment
+const printComment = hour => {
+  // comments
   const [morning, afternoon, evening, night] = ['Good morning', 'Good afternoon', 'Good evening', 'Good night'];
 
-  // 시간 24시 출력
-  $time.textContent = `${hour}:${minute}:${second}`;
-
-  // 코멘트 출력
   if (hour < 6) {
     $comment.textContent = night;
   } else if (hour < 12) {
@@ -41,13 +31,34 @@ setInterval(() => {
     $comment.textContent = afternoon;
   } else {
     $comment.textContent = evening;
-  };
+  }
+};
 
+// date, comment init
+const renderInit = () => {
+  printDate();
+  printComment(Today.getHours());
+};
+
+window.onload = renderInit();
+
+// clock
+setInterval(() => {
+  // time
+  Today = new Date();
+  let hour = Today.getHours();
+  hour = hour < 10 ? `0${hour}` : hour;
+  let minute = Today.getMinutes();
+  minute = minute < 10 ? `0${minute}` : minute;
+  let second = Today.getSeconds();
+  second = second < 10 ? `0${second}` : second;
+  const ampm = hour < 12 ? 'AM' : 'PM';
+  // change comment
+  const timePoints = ['06:00:00', '12:00:00', '18:00:00', '00:00:00'];
+
+  // print time 24hour
+  $time.textContent = `${hour}:${minute}:${second}`;
+
+  // print comment
+  timePoints.map(timePoint => (timePoint === $time.textContent ? printComment(hour) : false));
 }, 1000);
-
-
-
-
-
-
-
