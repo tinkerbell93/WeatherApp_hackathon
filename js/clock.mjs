@@ -1,7 +1,21 @@
+//state
+let customStyles = [];
+let viewClass;
+let bgCorloClass;
+
 // DOMs
+const $main = document.querySelector('main');
 const $date = document.querySelector('#clock .date');
 const $time = document.querySelector('#clock .time');
 const $comment = document.querySelector('#clock .comment');
+const $btnHoursView = document.querySelector('.hoursView_outerToggle');
+const $btnSettingOpen = document.querySelector('.btn_settingOpen');
+const $setting = document.getElementById('setting');
+const $font = document.getElementById('font');
+const $fontColor = document.getElementById('font_color');
+const $bgc = document.querySelector('.container_bgc')
+const $state = document.querySelector('.item_state');
+const $btnSettingClose = document.querySelector('.btn_settingClose');
 
 let Today = new Date();
 
@@ -40,8 +54,6 @@ const renderInit = () => {
   printComment(Today.getHours());
 };
 
-window.onload = renderInit();
-
 // clock
 setInterval(() => {
   // time
@@ -61,23 +73,15 @@ setInterval(() => {
 
   // print comment
   timePoints.map(timePoint => (timePoint === $time.textContent ? printComment(hour) : false));
+
+  if($btnHoursView.classList.contains('isAct')) {
+    hour = hour % 12 || 12;
+    hour = hour < 10 ? `0${hour}` : hour;
+    
+    $time.textContent = `${ampm} ${hour}:${minute}:${second}`;
+  }
 }, 1000);
 
-
-//state
-let customStyles = [];
-
-const $main = document.querySelector('main');
-const $btnHoursView = document.querySelector('.hoursView_outerToggle');
-const $btnSettingOpen = document.querySelector('.btn_settingOpen');
-const $setting = document.getElementById('setting');
-const $font = document.getElementById('font');
-const $fontColor = document.getElementById('font_color');
-const $bgc = document.querySelector('.container_bgc')
-const $state = document.querySelector('.item_state');
-const $btnSettingClose = document.querySelector('.btn_settingClose');
-
-// function
 
 // 스타일 적용
 const setStyle = () => {
@@ -97,13 +101,16 @@ const addState = (name, value) => {
 
 // 초기값 설정
 const setInitStyle = () => {
-  const font = JSON.parse(localStorage.getItem('customStyles')).filter(style => style.name === 'fontFamily')[0].value;
+  const data = JSON.parse(localStorage.getItem('customStyles'))
+
+  const font = data.filter(style => style.name === 'fontFamily')[0].value;
   const $selectedFont = document.querySelector(`[value = "${font}"]`);
-  const color = JSON.parse(localStorage.getItem('customStyles')).filter(style => style.name === 'color')[0].value;
+  const color = data.filter(style => style.name === 'color')[0].value;
 
 
   $selectedFont.setAttribute('selected', '');
   $fontColor.setAttribute('value', `${color}`);
+  classToggle()
 }
 
 
@@ -115,10 +122,12 @@ const paint = (name, value) => {
 
 // 로컬스토리지에 저장되어있는 스타일 가져오기
 const getStyle = () => {
-  if (!JSON.parse(localStorage.getItem('customStyles'))) return;
+  const data = JSON.parse(localStorage.getItem('customStyles'))
 
-  customStyles = JSON.parse(localStorage.getItem('customStyles'));
+  if (!data) return;
 
+  customStyles = data;
+ 
   setInitStyle();
   paint();
 };
@@ -154,17 +163,17 @@ const multiClassToggle = (element, className, target) => {
 }
 
 // 배경색 랜덤추출
-const getRandomBgc = () => {
-  const str = 'abcdef0123456789';
-  let random = '';
+// const getRandomBgc = () => {
+//   const str = 'abcdef0123456789';
+//   let random = '';
 
-  for(i = 0; i < 6; i++) {
-    let count = Math.floor(Math.random() * str.length);
-    random += str[count];
-  }
+//   for(let i = 0; i < 6; i++) {
+//     let count = Math.floor(Math.random() * str.length);
+//     random += str[count];
+//   }
 
-  return random;
-}
+//   return random;
+// }
 
 // 로컬스토리지에 커스텀 스타일 저장
 const saveStyle = () => {
@@ -173,9 +182,11 @@ const saveStyle = () => {
 
 // 로컬스토리지 및 현 스타일 제거
 const clearStyle = () => {
-  const font = JSON.parse(localStorage.getItem('customStyles')).filter(style => style.name === 'fontFamily')[0].value;
+  const data = JSON.parse(localStorage.getItem('customStyles'))
+  if (!data) return;
+
+  const font = data.filter(style => style.name === 'fontFamily')[0].value;
   const $selectedFont = document.querySelector(`[value = "${font}"]`);
-  const color = JSON.parse(localStorage.getItem('customStyles')).filter(style => style.name === 'color')[0].value;
 
   $selectedFont.removeAttribute('selected');
   $fontColor.setAttribute('value', ``);
@@ -184,12 +195,11 @@ const clearStyle = () => {
   $main.style = '';
 }
 
-
-
 // eventBinding
-
-// 로딩이벤트
-window.addEventListener('load', getStyle);
+window.addEventListener('load', () => {
+  renderInit();
+  getStyle();
+});
 
 // setting 메뉴 열기
 $btnSettingOpen.onclick = e => {
@@ -201,6 +211,7 @@ $btnSettingOpen.onclick = e => {
 // 1. 마우스 이벤트
 $btnHoursView.onclick = () => {
   classToggle($btnHoursView, 'isAct');
+  viewClass = $btnHoursView.classList[classList.length - 1];
 };
 // 2. 키보드 이벤트
 $btnHoursView.onkeyup = ({ keyCode }) => {
@@ -225,14 +236,16 @@ $bgc.onchange = ({ target }) => {
 
   multiClassToggle($bgc, 'select', target.previousElementSibling);
   paint(target.name, bgColor);
+  bgCorloClass = target.previousElementSibling.classList[classList.length - 1];
 };
 // 2. 키보드 이벤트
 $bgc.onkeyup = ({ keyCode, target }) => {
-  if (keyCode !== 13 || keyCode !== 9) return;
+  if (keyCode !== 13) return;
 
-  const bgColor = window.getComputedStyle(target.nextElementSibling).backgroundColor
+  const bgColor = window.getComputedStyle(target).backgroundColor
   multiClassToggle($bgc, 'select', target);
   paint(target.nextElementSibling.name, bgColor);
+  bgCorloClass = target.classList[classList.length - 1];
 };
 
 // 커스텀 스타일 저장 & 해제
