@@ -30,14 +30,14 @@ setInterval(() => {
   const [morning, afternoon, evening, night] = ['Good morning', 'Good afternoon', 'Good evening', 'Good night'];
 
   // 시간 24시 출력
-  $time.textContent = `${ampm} ${hour}:${minute}:${second}`;
+  $time.textContent = `${hour}:${minute}:${second}`;
 
   // 코멘트 출력
-  if (hour < 5) {
+  if (hour < 6) {
     $comment.textContent = night;
-  } else if (hour < 11) {
+  } else if (hour < 12) {
     $comment.textContent = morning;
-  } else if (hour < 17) {
+  } else if (hour < 18) {
     $comment.textContent = afternoon;
   } else {
     $comment.textContent = evening;
