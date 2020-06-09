@@ -1,0 +1,29 @@
+{
+  "name": "WeatherApp_hackathon",
+  "version": "1.0.0",
+  "description": "팀명 : '3'조",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LEE-WOO-SEONG/WeatherApp_hackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LEE-WOO-SEONG/WeatherApp_hackathon/issues"
+  },
+  "homepage": "https://github.com/LEE-WOO-SEONG/WeatherApp_hackathon#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-import": "^2.21.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
