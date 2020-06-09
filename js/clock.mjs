@@ -1,7 +1,7 @@
 //state
 let customStyles = [];
 let viewClass;
-let bgCorloClass;
+let selectedBg;
 
 // DOMs
 const $main = document.querySelector('main');
@@ -113,7 +113,8 @@ const setInitStyle = () => {
 
   $selectedFont.setAttribute('selected', '');
   $fontColor.setAttribute('value', `${color}`);
-  classToggle()
+  if(localStorage.getItem('viewClass') === 'isAct') classAdd($btnHoursView, 'isAct')
+  else classRemove($btnHoursView, 'isAct');
 }
 
 
@@ -165,22 +166,11 @@ const multiClassToggle = (element, className, target) => {
   [...element.children].forEach($item => $item.classList.toggle(className, $item === target));
 }
 
-// 배경색 랜덤추출
-// const getRandomBgc = () => {
-//   const str = 'abcdef0123456789';
-//   let random = '';
-
-//   for(let i = 0; i < 6; i++) {
-//     let count = Math.floor(Math.random() * str.length);
-//     random += str[count];
-//   }
-
-//   return random;
-// }
-
 // 로컬스토리지에 커스텀 스타일 저장
 const saveStyle = () => {
   localStorage.setItem('customStyles', JSON.stringify(customStyles));
+  localStorage.setItem('viewClass', viewClass);
+  localStorage.setItem('selectedBg', selectedBg);
 }
 
 // 로컬스토리지 및 현 스타일 제거
@@ -214,7 +204,7 @@ $btnSettingOpen.onclick = e => {
 // 1. 마우스 이벤트
 $btnHoursView.onclick = () => {
   classToggle($btnHoursView, 'isAct');
-  viewClass = $btnHoursView.classList[classList.length - 1];
+  viewClass = $btnHoursView.classList[$btnHoursView.classList.length - 1];
 };
 // 2. 키보드 이벤트
 $btnHoursView.onkeyup = ({ keyCode }) => {
@@ -239,7 +229,6 @@ $bgc.onchange = ({ target }) => {
 
   multiClassToggle($bgc, 'select', target.previousElementSibling);
   paint(target.name, bgColor);
-  bgCorloClass = target.previousElementSibling.classList[classList.length - 1];
 };
 // 2. 키보드 이벤트
 $bgc.onkeyup = ({ keyCode, target }) => {
@@ -248,7 +237,6 @@ $bgc.onkeyup = ({ keyCode, target }) => {
   const bgColor = window.getComputedStyle(target).backgroundColor
   multiClassToggle($bgc, 'select', target);
   paint(target.nextElementSibling.name, bgColor);
-  bgCorloClass = target.classList[classList.length - 1];
 };
 
 // 커스텀 스타일 저장 & 해제
