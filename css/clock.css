@@ -18,9 +18,9 @@
 .clock .date {
     font-size: 3vw;
 }
-.time i {
+.clock i.spinner {
     animation: spin 1s infinite linear;
-    font-size: 30px;
+    font-size: 7vw;
 }
 
 @media(max-width: 1200px) {
