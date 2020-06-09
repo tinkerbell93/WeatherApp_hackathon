@@ -4,11 +4,13 @@
 
 팀원 : 이우성 윤유비 김가현
 
-주제 : simple 크롬 확장프로그램 날씨 클론 프로젝트
+주제 : simple 크롬 확장프로그램 날씨예보 애플리케이션 클론
 
-[simple 크롬 확장프로그램](https://chrome.google.com/webstore/detail/simple/ofpamglakelakiehjfhgfcikpponflgi)
+[clone 사이트](https://chrome.google.com/webstore/detail/simple/ofpamglakelakiehjfhgfcikpponflgi)
 
+[구현 영상](https://www.youtube.com/watch?v=QwLIlq60Drk) 
 
+![image](https://user-images.githubusercontent.com/62285872/84174356-7b264a00-aab9-11ea-8cb1-ead00e1ea54d.png)
 
 ## 목표
 
@@ -39,7 +41,7 @@
   - Hours Display 
   - 폰트 수정
 
-  - 폰트색상 커스텀
+  - 폰트색상 수정
   - 배경색상 수정
 
 
@@ -47,7 +49,7 @@
 ### Optional
 
 - 시계
-  - 시간대 별로 글자 출력
+  - 시간대 별로 글자 출력 -> 구현완료
 - 날씨 
   - 위치 선정
 - 사이드 바
