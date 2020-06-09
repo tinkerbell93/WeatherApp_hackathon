@@ -17,6 +17,7 @@ const $weatherIcons = $forecast.querySelectorAll(".weather_icon");
 const $temps = $forecast.querySelectorAll(".temp");
 const $dayNmaes = $forecast.querySelectorAll(".day_name");
 
+//네비게이터를 가져올 경우
 function geoSuccess(position) {
   const { coords } = position;
   const lat = coords.latitude;
@@ -95,12 +96,15 @@ function geoSuccess(position) {
   }
   getWeatherAll(lat, lng);
 }
+//네비게이터를 가져오지 못할경우
 function geoError() {
   $weatherContents.forEach(content => content.textContent = "데이터를 가져올 수 없습니다.")
 }
+//네비게이터 가져오기
 function askForCoords() {
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 }
+//초기 설정
 function init() {
   askForCoords();
 }
