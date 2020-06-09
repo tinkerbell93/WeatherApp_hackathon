@@ -7,7 +7,9 @@ const $weather = document.getElementById("weather");
 const $forecast = $weather.querySelector(".forecast");
 const $currently = $weather.querySelector(".currently");
 const $currentlyBtn = $weather.querySelector(".currently_btn");
-const $city_select = $weather.querySelector(".city_select");
+const $citySelect = $weather.querySelector(".city_select");
+const $currentOption = $weather.querySelector(".current_option");
+
 
 const $weatherContents = $forecast.querySelectorAll(".weather_content");
 const $weatherIcons = $forecast.querySelectorAll(".fas.fa-spinner");
@@ -32,7 +34,7 @@ function geoSuccess(position) {
   async function getWeatherAll(lat, lng) {
     $currentlyBtn.firstElementChild.className = "fas fa-spinner";
     $currentlyBtn.disabled = true;
-    $city_select.disabled = true;
+    $citySelect.disabled = true;
     let weatherData;
     let cityData;
     let koreaCityData;
@@ -82,13 +84,15 @@ function geoSuccess(position) {
     cityData = await getJson(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`);
     async function cityRender(cityData) {
       $currently.textContent = cityData.name;
+      $currentOption.textContent = cityData.name;
+      $currentOption.selected = true;
     }
     cityRender(cityData);
     koreaCityData = await getJson('../json/cityKR.list.json');
-    $city_select.addEventListener("change", async ( { target }) => {
+    $citySelect.addEventListener("change", async ( { target }) => {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
       const { coord } = cityObj[0];
-      const { lat, lon } = coord;
+      const { lat, lon } = coord; 
       $weatherIcons.forEach(icon => {
         icon.className = "fas fa-spinner";
       });
@@ -96,7 +100,7 @@ function geoSuccess(position) {
     });
     $currentlyBtn.firstElementChild.className = "";
     $currentlyBtn.disabled = false;
-    $city_select.disabled = false;
+    $citySelect.disabled = false;
   }
   getWeatherAll(lat, lng);
 }
