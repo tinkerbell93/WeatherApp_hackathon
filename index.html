@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kp">
+<html lang="ko">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,26 +11,36 @@
     <meta property="og:image" content="">
     <meta property="og:url" content="">
     <title>weatherForecast</title>
-    <link rel="shortcut icon" href="">
-    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="./img/favi.ico">
+    <link rel="stylesheet" href="./css/clock.css">
     <link rel="stylesheet" href="./css/common.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="./css/weather-icons.css">
     <link rel="stylesheet" href="./css/weather-icons-wind.css">
     <script defer src=""></script>
     <script defer src=""></script>
+=======
+    <script defer src="./js/clock.mjs"></script>
+>>>>>>> 3631fab3e55f4423d3d8d48d8b808c9b8499ed63
     <script defer src="./js/weather.mjs"></script>
     <script src="https://kit.fontawesome.com/33179a3595.js" crossorigin="anonymous"></script>
   </head>
 <body>
   <main>
-    <h1></h1>
-    <section class="">
-      <h2></h2>
+    <h1 class="a11y_hidden">기상예보 페이지</h1>
+    <section id="clock" class="clock">
+      <h2 class="a11y_hidden">현재 시간</h2>
+      <div class="clock_wrap">
+        <p class="comment"></p>
+        <p class="time"><i class="fas fa-spinner"></i></p>
+        <time class="date"></time>
+      </div>
     </section>
-    <section class="">
-      <h2></h2>
+    <section id="set">
+      <h2 class="a11y_hidden"></h2>
     </section>
     <section id="weather">
+<<<<<<< HEAD
       <h2 class="a11y_hidden">날씨</h2>
       <div class="weather_wrap">
         <ul class="forecast">
@@ -87,6 +97,9 @@
           <button class="currently_btn">현재 위치</button>
         </div>
       </div>
+=======
+      <h2 class="a11y_hidden"></h2>
+>>>>>>> 3631fab3e55f4423d3d8d48d8b808c9b8499ed63
     </section>
   </main>
 </body>
