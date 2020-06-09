@@ -3,7 +3,6 @@
     text-align: center;
 }
 .clock_wrap {
-    /* background-color: #9689e8; */
     width: 80vw;
     margin: 0 auto;
 }
@@ -24,6 +23,22 @@
     font-size: 30px;
 }
 
+@media(max-width: 1200px) {
+    .clock_wrap {
+        margin-bottom: 50px;
+    }
+    .clock .comment{
+        font-size: 5vw;
+    }
+    .clock .time{
+        /* margin: 0.2em; */
+        font-size: 15vw;
+    }
+    .clock .date {
+        font-size: 6vw;
+    }
+  }
+
 @-moz-keyframes spin {
     from { -moz-transform: rotate(0deg); }
     to { -moz-transform: rotate(360deg); }
@@ -36,3 +51,4 @@
     from { -webkit-transform: rotate(0deg); }
     to { -webkit-transform: rotate(360deg); }
 }
+
