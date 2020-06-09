@@ -1,8 +1,5 @@
-// import { obj, foo } from './clock.mjs';
-// console.log(obj);
-// foo();
 const API_KEY = "64bb4412769a73988b668782663bd5f7";
-const week = ["일", "월", "화", "수", "목", "금", "토"];
+const week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const date = new Date();
 const today = date.getDay();
 
@@ -109,3 +106,12 @@ function init() {
   askForCoords();
 }
 init();
+window.addEventListener("click", e => {
+  const $effect = document.createElement("h6");
+  $effect.style.top = e.clientY + "px";
+  $effect.style.left = e.clientX + "px";
+  document.querySelector("body").appendChild($effect);
+  setTimeout(() => {
+    $effect.remove();
+  }, 1000);
+})
