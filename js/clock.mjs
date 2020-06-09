@@ -60,7 +60,9 @@ setInterval(() => {
   $time.textContent = `${hour}:${minute}:${second}`;
 
   // print comment
-  timePoints.map(timePoint => (timePoint === $time.textContent ? printComment(hour) : false));
+  timePoints.forEach(timePoint => {
+    if (timePoint === $time.textContent) printComment(hour);
+  });
 }, 1000);
 
 
@@ -255,5 +257,3 @@ $btnSettingClose.onclick = () => {
   show($btnSettingOpen);
   $btnSettingOpen.focus();
 };
-
-
