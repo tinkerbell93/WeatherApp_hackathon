@@ -19,6 +19,7 @@ function geoSuccess(position) {
   const { coords } = position;
   const lat = coords.latitude;
   const lng = coords.longitude;
+  
   $currentlyBtn.addEventListener("click", () => {
     getWeatherAll(lat, lng);
   });
@@ -32,6 +33,7 @@ function geoSuccess(position) {
     let weatherData;
     let cityData;
     let koreaCityData;
+
     weatherData = await getJson(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`);
     console.log(weatherData);
     async function weatherRender(weatherData) {
