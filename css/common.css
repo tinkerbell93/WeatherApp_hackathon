@@ -1,7 +1,7 @@
 /* 초기화 */
 
 /* 숨긴콘텐츠 */
-.a11y-hidden {
+.a11y_hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -36,4 +36,5 @@ ul {
 button {
     padding: 0;
     cursor: pointer;
+    border: none;
 }

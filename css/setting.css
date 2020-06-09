@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Cutive+Mono&family=Noto+Sans&family=Roboto+Mono&display=swap');
+
+#setting {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: #000;
+  font-family: sans-serif; 
+  width: 40vw;
+  /* height: 100vh; */
+  background-color: rgba(134, 138, 134, 0.3);
+  border-radius: 20px 0 0 20px;
+  padding: 30px;
+  font-family: sans-serif;
+  visibility: hidden;
+  transform: translateX(105%);
+  transition: all .3s;
+}
+
+#setting.active {
+  visibility: visible;
+  transform: none;
+}
+
+.btn_settingOpen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+p[class$="heading"] {
+  font-size: 30px;
+}
+
+.hoursView_outerToggle {
+  position: relative;
+  vertical-align: middle;
+  width: 58px;
+  height: 22px;
+  background-color: #aaa;
+  border-radius: 20px;
+}
+
+.hoursView_innerToggle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: #000;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
+.isAct.hoursView_outerToggle {
+  background-color: orange;
+}
+
+.isAct .hoursView_innerToggle {
+  transform: translateX(200%);
+  background-color: #fff;
+}
+
+.container_bgc {
+  width: 300px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.item_backgroundColor input {
+  display: none;
+}
+
+.item_backgroundColor label {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+label.select:before {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  content: '★';
+  
+}
+
+.container_bgc > label:nth-of-type(1),
+.container_bgc > input:nth-of-type(1) {
+  background-color: #0F4C81;
+  border-radius: 50px 0 0 0;
+}
+.container_bgc > label:nth-of-type(2),
+.container_bgc > input:nth-of-type(2) {
+  background-color: #FF6F61;
+}
+.container_bgc > label:nth-of-type(3),
+.container_bgc > input:nth-of-type(3) {
+  background-color: #5F4B8B;
+  border-radius: 0 50px 0 0;
+}
+.container_bgc > label:nth-of-type(4),
+.container_bgc > input:nth-of-type(4) {
+  background-color: #88B04B;
+}
+.container_bgc > label:nth-of-type(5),
+.container_bgc > input:nth-of-type(5) {
+  background-color: #92A8D1;
+}
+.container_bgc > label:nth-of-type(6),
+.container_bgc > input:nth-of-type(6) {
+  background-color: #F7CAC9;
+}
+.container_bgc > label:nth-of-type(7),
+.container_bgc > input:nth-of-type(7) {
+  background-color: #955251;
+  border-radius: 0 0 0 50px;
+}
+.container_bgc > label:nth-of-type(8),
+.container_bgc > input:nth-of-type(8) {
+  background-color: #B163A3;
+}
+.container_bgc > label:nth-of-type(9),
+.container_bgc > input:nth-of-type(9) {
+  background-color: #009473;
+  border-radius: 0 0 50px 0;
+
+}
+
+.item_state button {
+  font-size: 1.3em;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.btn_settingClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 30px;
+  background-color: transparent;
+}
