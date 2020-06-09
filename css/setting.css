@@ -197,4 +197,14 @@ label[for="bgc_6"]{
   p[class$="heading"] {
     font-size: 20px;
   }
+  .hoursView_outerToggle {
+    width: 35px;
+  }
+  .isAct .hoursView_innerToggle {
+    transform: translateX(13px);
+  }
+  .item_state button {
+    width: 55px;
+    padding: 10px;
+  }
 }
