@@ -1,0 +1,38 @@
+/* clcok */
+.clock {
+    text-align: center;
+}
+.clock_wrap {
+    /* background-color: #9689e8; */
+    width: 80vw;
+    margin: 0 auto;
+}
+.clock .comment{
+    margin: 0;
+    margin-top: 50px;
+    font-size: 2vw;
+}
+.clock .time{
+    margin: 0.2em;
+    font-size: 7vw;
+}
+.clock .date {
+    font-size: 3vw;
+}
+.time i {
+    animation: spin 1s infinite linear;
+    font-size: 30px;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}

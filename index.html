@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="기상예보 페이지">
-  <meta name="description" content="기상예보 및 시간확인 가능한 사이트입니다.">
-  <meta name="keywords" content="날씨,기상,시계,예보,맑음,비옴,흐림,눈,천둥,번개">
-  <meta property="og:title" content="이번주 날씨 한눈에 보기">
-  <meta property="og:description" content="금주 5일동안의 날씨와 시간을 볼 수 있는 사이트">
-  <meta property="og:image" content="">
-  <meta property="og:url" content="">
-  <title>weatherForecast</title>
-  <link rel="shortcut icon" href="./img/favi.ico">
-  <link rel="stylesheet" href="./css/setting.css">
-  <link rel="stylesheet" href="./css/common.css">
-  <script defer src="./js/clock.mjs"></script>
-  <script defer src=""></script>
-  <script src="https://kit.fontawesome.com/33179a3595.js" crossorigin="anonymous"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="기상예보 페이지">
+    <meta name="description" content="기상예보 및 시간확인 가능한 사이트입니다.">
+    <meta name="keywords" content="날씨,기상,시계,예보,맑음,비옴,흐림,눈,천둥,번개">
+    <meta property="og:title" content="이번주 날씨 한눈에 보기">
+    <meta property="og:description" content="금주 5일동안의 날씨와 시간을 볼 수 있는 사이트">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <title>weatherForecast</title>
+    <link rel="shortcut icon" href="./img/favi.ico">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/clock.css">
+    <link rel="stylesheet" href="./css/setting.css">
+    <link rel="stylesheet" href="./css/weather-icons.css">
+    <link rel="stylesheet" href="./css/weather-icons-wind.css">
+    <script defer type="module" src="./js/clock.mjs"></script>
+    <script defer type="module" src="./js/weather.mjs"></script>
+  </head>
 
-<body>
-  <main>
-    <h1 class="a11y_hidden"></h1>
-    <section id="clock">asd
-      <h2 class="a11y_hidden"></h2>
-    </section>
-    <section id="weather">asd
-      <h2 class="a11y_hidden"></h2>
-    </section>
-    <button type="button" class="btn_settingOpen fas fa-cog"></button>
-    <section id="setting">
-      <h2 class="a11y_hidden">환경설정</h2>
-      <ul>
-        <li class="item_hourseView">
-          <p class="hoursView_heading">hours View</p>
-          <span>24hours</span>
-          <button class="hoursView_outerToggle">
-            <span class="hoursView_innerToggle"></span>
-          </button>
-          <span>12hours</span>
-        </li>
-        <li class="item_font">
-          <p class="font_heading">font</p>
-          <label for="font">select:</label>
-          <select id="font" name="fontFamily">
-            <option value="Noto Sans">Noto Sans</option>
-            <option value="B612 Mono">B612 Mono</option>
-            <option value="Cutive Mono">Cutive Mono</option>
-            <option value="Roboto Mono">Roboto Mono</option>
-          </select>
-        </li>
-        <li class="item_fontColor">
-          <p class="fontColor_heading">font color</p>
-          <label for="font_color">select:</label>
-          <input id="font_color" type="color" name="color">
-        </li>
-        <li class="item_backgroundColor">
-          <p class="backgroundColor_heading">background color</p>
-          <div class="container_bgc">
-            <label for="bgc_1" tabindex="0"></label>
-            <input id="bgc_1" type="radio" name="backgroundColor">
-            <label for="bgc_2" tabindex="0"></label>
-            <input id="bgc_2" type="radio" name="backgroundColor">
-            <label for="bgc_3" tabindex="0"></label>
-            <input id="bgc_3" type="radio" name="backgroundColor">
-            <label for="bgc_4" tabindex="0"></label>
-            <input id="bgc_4" type="radio" name="backgroundColor">
-            <label for="bgc_5" tabindex="0"></label>
-            <input id="bgc_5" type="radio" name="backgroundColor">
-            <label for="bgc_6" tabindex="0"></label>
-            <input id="bgc_6" type="radio" name="backgroundColor">
-            <label for="bgc_7" tabindex="0"></label>
-            <input id="bgc_7" type="radio" name="backgroundColor">
-            <label for="bgc_8" tabindex="0"></label>
-            <input id="bgc_8" type="radio" name="backgroundColor">
-            <label for="bgc_9" tabindex="0"></label>
-            <input id="bgc_9" type="radio" name="backgroundColor">
+  <body>
+    <main>
+      <h1 class="a11y_hidden">기상예보 페이지</h1>
+      <section id="clock" class="clock">
+        <h2 class="a11y_hidden">현재 시간</h2>
+        <div class="clock_wrap">
+          <p class="comment"></p>
+          <p class="time"><i class="fas fa-spinner"></i></p>
+          <time class="date"></time>
+        </div>
+      </section>
+      <section id="weather">
+        <h2 class="a11y_hidden">날씨</h2>
+        <div class="weather_wrap">
+          <ul class="forecast">
+            <li class="weather_content">
+              <i class="weather_icon" id="first"></i>
+              <p class="temp"></p>
+              <p class="day_name"></p>
+            </li>
+            <li class="weather_content">
+              <i class="weather_icon"></i>
+              <p class="temp"></p>
+              <p class="day_name"></p>
+            </li>
+            <li class="weather_content">
+              <i class="weather_icon"></i>
+              <p class="temp"></p>
+              <p class="day_name"></p>
+            </li>
+            <li class="weather_content">
+              <i class="weather_icon"></i>
+              <p class="temp"></p>
+              <p class="day_name"></p>
+            </li>
+            <li class="weather_content">
+              <i class="weather_icon"></i>
+              <p class="temp"></p>
+              <p class="day_name"></p>
+            </li>
+          </ul>
+          <p class="currently"></p>
+          <div class="city_container">
+            <select class="city_select">
+              <optgroup label="도">
+                <option>경기도</option>
+                <option>강원도</option>
+                <option>충청북도</option>
+                <option>충청남도</option>
+                <option>경상북도</option>
+                <option>경상남도</option>
+                <option>전라북도</option>
+                <option>전라남도</option>
+                <option>제주도</option>
+              </optgroup>
+              <optgroup label="시">
+                <option>서울</option>
+                <option>부산</option>
+                <option>대구</option>
+                <option>인천</option>
+                <option>광주</option>
+                <option>대전</option>
+                <option>울산</option>
+              </optgroup>
+            </select>
+            <button class="currently_btn">현재 위치</button>
           </div>
-        </li>
-        <li class="item_state">
-          <p class="state_heading">setting save & clear</p>
-          <button type="button" class="btn_settingSave">save</button>
-          <button type="button" class="btn_settingClear">clear</button>
-        </li>
-      </ul>
-      <button type="button" class="btn_settingClose fas fa-times-circle"></button>
-    </section>
-  </main>
-</body>
+        </div>
+      </section>
+      <button type="button" class="btn_settingOpen fas fa-cog"></button>
+      <section id="setting">
+        <h2 class="a11y_hidden">환경설정</h2>
+        <ul>
+          <li class="item_hourseView">
+            <p class="hoursView_heading">hours View</p>
+            <span>24hours</span>
+            <button class="hoursView_outerToggle">
+              <span class="hoursView_innerToggle"></span>
+            </button>
+            <span>12hours</span>
+          </li>
+          <li class="item_font">
+            <p class="font_heading">font</p>
+            <label for="font">select:</label>
+            <select id="font" name="fontFamily">
+              <option value="Noto Sans">Noto Sans</option>
+              <option value="B612 Mono">B612 Mono</option>
+              <option value="Cutive Mono">Cutive Mono</option>
+              <option value="Roboto Mono">Roboto Mono</option>
+            </select>
+          </li>
+          <li class="item_fontColor">
+            <p class="fontColor_heading">font color</p>
+            <label for="font_color">select:</label>
+            <input id="font_color" type="color" name="color">
+          </li>
+          <li class="item_backgroundColor">
+            <p class="backgroundColor_heading">background color</p>
+            <div class="container_bgc">
+              <label for="bgc_1" tabindex="0"></label>
+              <input id="bgc_1" type="radio" name="backgroundColor">
+              <label for="bgc_2" tabindex="0"></label>
+              <input id="bgc_2" type="radio" name="backgroundColor">
+              <label for="bgc_3" tabindex="0"></label>
+              <input id="bgc_3" type="radio" name="backgroundColor">
+              <label for="bgc_4" tabindex="0"></label>
+              <input id="bgc_4" type="radio" name="backgroundColor">
+              <label for="bgc_5" tabindex="0"></label>
+              <input id="bgc_5" type="radio" name="backgroundColor">
+              <label for="bgc_6" tabindex="0"></label>
+              <input id="bgc_6" type="radio" name="backgroundColor">
+              <label for="bgc_7" tabindex="0"></label>
+              <input id="bgc_7" type="radio" name="backgroundColor">
+              <label for="bgc_8" tabindex="0"></label>
+              <input id="bgc_8" type="radio" name="backgroundColor">
+              <label for="bgc_9" tabindex="0"></label>
+              <input id="bgc_9" type="radio" name="backgroundColor">
+            </div>
+          </li>
+          <li class="item_state">
+            <p class="state_heading">setting save & clear</p>
+            <button type="button" class="btn_settingSave">save</button>
+            <button type="button" class="btn_settingClear">clear</button>
+          </li>
+        </ul>
+        <button type="button" class="btn_settingClose fas fa-times-circle"></button>
+      </section>
+    </main>
+  </body>
 
 </html>
