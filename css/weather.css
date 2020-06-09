@@ -12,7 +12,8 @@
 .weather_content {
   text-align: center;
   margin: 0 50px;
-  height: 175px;
+  /* height: 140px; */
+  font-size: 2em;
   /* animation: spin 1s linear infinite; */
 }
 
@@ -71,5 +72,6 @@
    min-width: 100%;
    font-size: 1.3em;
    margin-bottom: 30px;
+   height: 175px;
   }
 }

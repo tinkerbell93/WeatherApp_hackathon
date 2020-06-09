@@ -41,7 +41,7 @@ function geoSuccess(position) {
 
     weatherData = await getJson(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`);
     async function weatherRender(weatherData) {
-      const { daily, hourly } = weatherData;
+      const { daily } = weatherData;
       $weatherContents.forEach((_, i) => {
         switch (daily[i].weather[0].main) {
           case "Thunderstorm":
