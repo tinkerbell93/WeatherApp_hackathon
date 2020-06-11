@@ -11,13 +11,13 @@
   background-color: rgba(38, 39, 38, 0.95);
   padding: 30px;
   font-family: sans-serif;
-  visibility: hidden;
+  /* visibility: hidden; */
   transform: translateX(105%);
-  transition: all .3s;
+  transition: transform .3s;
 }
 
 #setting.active {
-  visibility: visible;
+  /* visibility: visible; */
   transform: none;
 }
 
