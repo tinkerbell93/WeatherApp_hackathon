@@ -114,6 +114,27 @@ const multiClassToggle = (element, className, target) => {
   [...element.children].forEach($item => $item.classList.toggle(className, $item === target));
 };
 
+// tabindex 추가
+const getTabindex = () => {
+  $btnHoursView.setAttribute('tabindex', 0);
+  $font.setAttribute('tabindex', 0);
+  $fontColor.setAttribute('tabindex', 0);
+  [...document.querySelectorAll('.container_bgc > label')].forEach($label => $label.setAttribute('tabindex', 0));
+  document.querySelector('.btn_settingSave').setAttribute('tabindex', 0);
+  document.querySelector('.btn_settingClear').setAttribute('tabindex', 0);
+  $btnSettingClose.setAttribute('tabindex', 0);
+};
+
+// tabindex 제거
+const removeTabindex = () => {
+  $btnHoursView.setAttribute('tabindex', -1);
+  $font.setAttribute('tabindex', -1);
+  $fontColor.setAttribute('tabindex', -1);
+  [...document.querySelectorAll('.container_bgc > label')].forEach($label => $label.setAttribute('tabindex', -1));
+  document.querySelector('.btn_settingSave').setAttribute('tabindex', -1);
+  document.querySelector('.btn_settingClear').setAttribute('tabindex', -1);
+  $btnSettingClose.setAttribute('tabindex', -1);
+};
 
 // 스타일 적용
 const setStyle = () => {
@@ -147,7 +168,7 @@ const setInitStyle = () => {
   // 폰트 색 초기설정
   if (color.length) $fontColor.setAttribute('value', `${color[0].value}`);
   // hours view 설정
-  if (viewClass[0].value === 'isAct') classAdd($btnHoursView, 'isAct');
+  if (viewClass[0]) classAdd($btnHoursView, 'isAct');
 };
 
 // 초기값 해제
@@ -166,7 +187,7 @@ const clearInitStyle = () => {
   // 폰트 색 초기값 해제
   if (color.length) $fontColor.setAttribute('value', '');
   // hours view 초기값 해제
-  if (viewClass[0].value === 'isAct') classRemove($btnHoursView, 'isAct');
+  if (viewClass[0]) classRemove($btnHoursView, 'isAct');
 };
 
 // 배경색 랜덤추출
@@ -182,11 +203,23 @@ const getRandomBgc = () => {
   return random;
 };
 
+// 키보드 움직임 제어
+const keyMove = (attr, keyCode) => {
+  const $selectedBg = document.querySelector(`label[for="${attr}"]`);
+
+  if (keyCode === 37 && $selectedBg.htmlFor !== 'bgc_1') $selectedBg.previousElementSibling.previousElementSibling.focus();
+  if (keyCode === 39 && $selectedBg.htmlFor !== 'bgc_9') $selectedBg.nextElementSibling.nextElementSibling.focus();
+};
+
 // 로컬스토리지에 저장되어있는 스타일 가져오기
 const loadStyle = () => {
-  customStyles = JSON.parse(localStorage.getItem('customStyles')) || [];
+  const initStyle = [
+    { name: 'font', value: 'Noto Sans' },
+    { name: 'color', value: 'rgb(0, 0, 0)' },
+    { name: 'backgroundColor', value: `#${getRandomBgc()}` }
+  ];
 
-  if (!customStyles.filter(style => style.name === 'backgroundColor').length) $main.style.backgroundColor = `#${getRandomBgc()}`;
+  customStyles = JSON.parse(localStorage.getItem('customStyles')) || initStyle;
 
   setInitStyle();
   setStyle();
@@ -217,6 +250,8 @@ window.addEventListener('load', () => {
 $btnSettingOpen.onclick = () => {
   classToggle($setting, 'active');
   hide($btnSettingOpen);
+  getTabindex($setting);
+  $btnHoursView.focus();
 };
 
 // hours view 클래스 추가 & 제거
@@ -254,6 +289,7 @@ $bgc.onchange = ({ target }) => {
 };
 // 2. 키보드 이벤트
 $bgc.onkeyup = ({ keyCode, target }) => {
+  keyMove(target.htmlFor, keyCode);
   if (keyCode !== 13) return;
 
   const bgColor = window.getComputedStyle(target).backgroundColor;
@@ -280,5 +316,6 @@ $btnSettingClose.onkeydown = e => {
 $btnSettingClose.onclick = () => {
   classToggle($setting, 'active');
   show($btnSettingOpen);
+  removeTabindex();
   $btnSettingOpen.focus();
 };
