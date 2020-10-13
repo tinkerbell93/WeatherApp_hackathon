@@ -20,12 +20,17 @@ function geoSuccess(position) {
   const { coords } = position;
   const { latitude, longitude } = coords;
 
-  function getJson(fetchStr, str) {
-    return fetch(fetchStr, {
-      credentials: str,
-    })
-      .then(res => res.json())
-      .then(jsonData => jsonData);
+  function getJson(fetchStr, credentials) {
+    let data;
+    if (credentials === 'include') {
+      data = fetch(fetchStr, {
+        credentials: 'include',
+      });
+    } else {
+      data = fetch(fetchStr);
+    }
+
+    return data.then(res => res.json()).then(jsonData => jsonData);
   }
   async function getWeatherAll(lat, lng) {
     $currentlyBtn.firstElementChild.className = 'fas fa-spinner';
