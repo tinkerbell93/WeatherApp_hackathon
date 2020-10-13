@@ -2,7 +2,6 @@
   {
     "id": 1833742,
     "name": "울산",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 129.266663,
@@ -12,7 +11,6 @@
   {
     "id": 1835224,
     "name": "대전",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127.416672,
@@ -22,7 +20,6 @@
   {
     "id": 1835327,
     "name": "대구",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 128.550003,
@@ -32,7 +29,6 @@
   {
     "id": 1835847,
     "name": "서울",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127,
@@ -42,7 +38,6 @@
   {
     "id": 1838519,
     "name": "부산",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 129.050003,
@@ -52,7 +47,6 @@
   {
     "id": 1841597,
     "name": "경상북도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 128.75,
@@ -62,7 +56,6 @@
   {
     "id": 1902028,
     "name": "경상남도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 128.25,
@@ -72,7 +65,6 @@
   {
     "id": 1841610,
     "name": "경기도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127.25,
@@ -82,7 +74,6 @@
   {
     "id": 1841808,
     "name": "광주",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 126.916672,
@@ -92,7 +83,6 @@
   {
     "id": 1843125,
     "name": "강원도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 128.25,
@@ -102,7 +92,6 @@
   {
     "id": 1843561,
     "name": "인천",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 126.416107,
@@ -112,7 +101,6 @@
   {
     "id": 1845105,
     "name": "충청남도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127,
@@ -122,17 +110,15 @@
   {
     "id": 1845106,
     "name": "충청북도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 128,
       "lat": 36.75
     }
-  }, 
+  },
   {
     "id": 1845788,
     "name": "전라남도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127,
@@ -142,7 +128,6 @@
   {
     "id": 1845789,
     "name": "전라북도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 127.25,
@@ -152,7 +137,6 @@
   {
     "id": 1846265,
     "name": "제주도",
-    "state": "",
     "country": "KR",
     "coord": {
       "lon": 126.5,
