@@ -81,7 +81,6 @@ function geoSuccess(position) {
     const weatherData = await getJson(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`
     );
-    console.log(weatherData);
     weatherRender(weatherData);
 
     const cityData = await getJson(
@@ -89,9 +88,7 @@ function geoSuccess(position) {
     );
     cityRender(cityData);
 
-    const koreaCityData = await getJson('../json/cityKR.list.json', {
-      credentials: 'same-origin',
-    });
+    const koreaCityData = await getJson('./cityKR.list.json');
 
     $citySelect.addEventListener('change', ({ target }) => {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
