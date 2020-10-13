@@ -20,17 +20,10 @@ function geoSuccess(position) {
   const { coords } = position;
   const { latitude, longitude } = coords;
 
-  function getJson(fetchStr, simpleReq) {
-    let data;
-    if (simpleReq === true) {
-      data = fetch(fetchStr, {
-        credentials: 'include',
-      });
-    } else {
-      data = fetch(fetchStr);
-    }
-
-    return data.then(res => res.json()).then(jsonData => jsonData);
+  function getJson(fetchStr) {
+    return fetch(fetchStr)
+      .then(res => res.json())
+      .then(jsonData => jsonData);
   }
   async function getWeatherAll(lat, lng) {
     $currentlyBtn.firstElementChild.className = 'fas fa-spinner';
@@ -102,7 +95,7 @@ function geoSuccess(position) {
       $currentOption.selected = true;
     }
     cityRender(cityData);
-    const koreaCityData = await getJson('../json/cityKR.list.json', true);
+    const koreaCityData = await getJson('../json/cityKR.list.json');
     $citySelect.addEventListener('change', async ({ target }) => {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
       const { coord } = cityObj[0];
