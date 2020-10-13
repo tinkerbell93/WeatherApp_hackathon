@@ -33,7 +33,12 @@ const printDate = () => {
 // comment
 const printComment = hour => {
   // comments
-  const [morning, afternoon, evening, night] = ['Good morning', 'Good afternoon', 'Good evening', 'Good night'];
+  const [morning, afternoon, evening, night] = [
+    'Good morning',
+    'Good afternoon',
+    'Good evening',
+    'Good night',
+  ];
 
   if (hour < 6) {
     $comment.textContent = night;
@@ -74,7 +79,6 @@ setInterval(() => {
     if (timePoint === $time.textContent) printComment(hour);
   });
 
-
   if ($btnHoursView.classList.contains('isAct')) {
     hour = hour % 12 || 12;
     hour = hour < 10 ? `0${hour}` : hour;
@@ -82,7 +86,6 @@ setInterval(() => {
     $time.textContent = `${ampm} ${hour}:${minute}:${second}`;
   }
 }, 100);
-
 
 // 클래스 토글
 const classToggle = (element, className) => {
@@ -111,7 +114,9 @@ const show = element => {
 
 // 선택된 요소만 클래스 추가
 const multiClassToggle = (element, className, target) => {
-  [...element.children].forEach($item => $item.classList.toggle(className, $item === target));
+  [...element.children].forEach($item =>
+    $item.classList.toggle(className, $item === target)
+  );
 };
 
 // tabindex 추가
@@ -119,7 +124,9 @@ const getTabindex = () => {
   $btnHoursView.setAttribute('tabindex', 0);
   $font.setAttribute('tabindex', 0);
   $fontColor.setAttribute('tabindex', 0);
-  [...document.querySelectorAll('.container_bgc > label')].forEach($label => $label.setAttribute('tabindex', 0));
+  [...document.querySelectorAll('.container_bgc > label')].forEach($label =>
+    $label.setAttribute('tabindex', 0)
+  );
   document.querySelector('.btn_settingSave').setAttribute('tabindex', 0);
   document.querySelector('.btn_settingClear').setAttribute('tabindex', 0);
   $btnSettingClose.setAttribute('tabindex', 0);
@@ -130,7 +137,9 @@ const removeTabindex = () => {
   $btnHoursView.setAttribute('tabindex', -1);
   $font.setAttribute('tabindex', -1);
   $fontColor.setAttribute('tabindex', -1);
-  [...document.querySelectorAll('.container_bgc > label')].forEach($label => $label.setAttribute('tabindex', -1));
+  [...document.querySelectorAll('.container_bgc > label')].forEach($label =>
+    $label.setAttribute('tabindex', -1)
+  );
   document.querySelector('.btn_settingSave').setAttribute('tabindex', -1);
   document.querySelector('.btn_settingClear').setAttribute('tabindex', -1);
   $btnSettingClose.setAttribute('tabindex', -1);
@@ -148,7 +157,9 @@ const addState = (name, value) => {
   if (customStyles.every(style => style.name !== name)) {
     customStyles = [{ name, value }, ...customStyles];
   } else {
-    customStyles = customStyles.map(style => style.name === name ? {...style, value: value } : style );
+    customStyles = customStyles.map(style =>
+      style.name === name ? { ...style, value: value } : style
+    );
   }
 };
 
@@ -162,7 +173,9 @@ const setInitStyle = () => {
 
   // 폰트 초기설정
   if (font.length) {
-    const $selectedFont = document.querySelector(`[value = "${font[0].value}"]`);
+    const $selectedFont = document.querySelector(
+      `[value = "${font[0].value}"]`
+    );
     $selectedFont.setAttribute('selected', '');
   }
   // 폰트 색 초기설정
@@ -181,7 +194,9 @@ const clearInitStyle = () => {
 
   // 폰트 초기값 해제
   if (font.length) {
-    const $selectedFont = document.querySelector(`[value = "${font[0].value}"]`);
+    const $selectedFont = document.querySelector(
+      `[value = "${font[0].value}"]`
+    );
     $selectedFont.removeAttribute('selected');
   }
   // 폰트 색 초기값 해제
@@ -207,8 +222,10 @@ const getRandomBgc = () => {
 const keyMove = (attr, keyCode) => {
   const $selectedBg = document.querySelector(`label[for="${attr}"]`);
 
-  if (keyCode === 37 && $selectedBg.htmlFor !== 'bgc_1') $selectedBg.previousElementSibling.previousElementSibling.focus();
-  if (keyCode === 39 && $selectedBg.htmlFor !== 'bgc_9') $selectedBg.nextElementSibling.nextElementSibling.focus();
+  if (keyCode === 37 && $selectedBg.htmlFor !== 'bgc_1')
+    $selectedBg.previousElementSibling.previousElementSibling.focus();
+  if (keyCode === 39 && $selectedBg.htmlFor !== 'bgc_9')
+    $selectedBg.nextElementSibling.nextElementSibling.focus();
 };
 
 // 로컬스토리지에 저장되어있는 스타일 가져오기
@@ -216,7 +233,7 @@ const loadStyle = () => {
   const initStyle = [
     { name: 'font', value: 'Noto Sans' },
     { name: 'color', value: 'rgb(0, 0, 0)' },
-    { name: 'backgroundColor', value: `#${getRandomBgc()}` }
+    { name: 'backgroundColor', value: `#${getRandomBgc()}` },
   ];
 
   customStyles = JSON.parse(localStorage.getItem('customStyles')) || initStyle;
@@ -238,7 +255,6 @@ const clearStyle = () => {
   localStorage.clear();
 };
 
-
 // eventBinding
 // 윈도우 로딩이벤트
 window.addEventListener('load', () => {
@@ -258,7 +274,10 @@ $btnSettingOpen.onclick = () => {
 // 1. 마우스 이벤트
 $btnHoursView.onclick = () => {
   classToggle($btnHoursView, 'isAct');
-  addState('viewClass', `${$btnHoursView.classList[$btnHoursView.classList.length - 1]}`);
+  addState(
+    'viewClass',
+    `${$btnHoursView.classList[$btnHoursView.classList.length - 1]}`
+  );
 };
 // 2. 키보드 이벤트
 $btnHoursView.onkeyup = ({ keyCode }) => {

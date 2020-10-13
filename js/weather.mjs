@@ -10,7 +10,6 @@ const $currentlyBtn = $weather.querySelector('.currently_btn');
 const $citySelect = $weather.querySelector('.city_select');
 const $currentOption = $weather.querySelector('.current_option');
 
-
 const $weatherContents = $forecast.querySelectorAll('.weather_content');
 const $weatherIcons = $forecast.querySelectorAll('.fas.fa-spinner');
 const $temps = $forecast.querySelectorAll('.temp');
@@ -19,12 +18,7 @@ const $dayNmaes = $forecast.querySelectorAll('.day_name');
 // 네비게이터를 가져올 경우
 function geoSuccess(position) {
   const { coords } = position;
-  const lat = coords.latitude;
-  const lng = coords.longitude;
-
-  $currentlyBtn.addEventListener('click', () => {
-    getWeatherAll(lat, lng);
-  });
+  const { latitude, longitude } = coords;
 
   function getJson(fetchStr) {
     return fetch(fetchStr)
@@ -35,13 +29,12 @@ function geoSuccess(position) {
     $currentlyBtn.firstElementChild.className = 'fas fa-spinner';
     $currentlyBtn.disabled = true;
     $citySelect.disabled = true;
-    let weatherData;
-    let cityData;
-    let koreaCityData;
 
-    weatherData = await getJson(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`);
-    async function weatherRender(weatherData) {
-      const { daily } = weatherData;
+    const weatherData = await getJson(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`
+    );
+    async function weatherRender(weather) {
+      const { daily } = weather;
       $weatherContents.forEach((_, i) => {
         switch (daily[i].weather[0].main) {
           case 'Thunderstorm':
@@ -60,7 +53,6 @@ function geoSuccess(position) {
           case 'Dust':
           case 'Fog':
           case 'Sand':
-          case 'Dust':
           case 'Ash':
           case 'Squall':
           case 'Tornado':
@@ -75,21 +67,36 @@ function geoSuccess(position) {
           default:
             $weatherIcons[i].className = 'wi wi-refresh';
         }
-        $temps[i].textContent = `${daily[i].temp.min}°C / ${daily[i].temp.max}°C`;
-        $dayNmaes[i].textContent = week[(today + i) === 7 ? 0 : (today + i) === 8 ? 1 : (today + i) === 9 ? 2 : (today + i) === 10 ? 3 : today + i];
+        $temps[
+          i
+        ].textContent = `${daily[i].temp.min}°C / ${daily[i].temp.max}°C`;
+        $dayNmaes[i].textContent =
+          week[
+            today + i === 7
+              ? 0
+              : today + i === 8
+              ? 1
+              : today + i === 9
+              ? 2
+              : today + i === 10
+              ? 3
+              : today + i
+          ];
         $dayNmaes[0].textContent = 'Today';
       });
     }
     weatherRender(weatherData);
-    cityData = await getJson(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`);
-    async function cityRender(cityData) {
-      $currently.textContent = cityData.name;
-      $currentOption.textContent = cityData.name;
+    const cityData = await getJson(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`
+    );
+    async function cityRender(city) {
+      $currently.textContent = city.name;
+      $currentOption.textContent = city.name;
       $currentOption.selected = true;
     }
     cityRender(cityData);
-    koreaCityData = await getJson('../json/cityKR.list.json');
-    $citySelect.addEventListener('change', async ( { target }) => {
+    const koreaCityData = await getJson('../json/cityKR.list.json');
+    $citySelect.addEventListener('change', async ({ target }) => {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
       const { coord } = cityObj[0];
       const { lat, lon } = coord;
@@ -102,11 +109,17 @@ function geoSuccess(position) {
     $currentlyBtn.disabled = false;
     $citySelect.disabled = false;
   }
-  getWeatherAll(lat, lng);
+  getWeatherAll(latitude, longitude);
+
+  $currentlyBtn.addEventListener('click', () => {
+    getWeatherAll(latitude, longitude);
+  });
 }
 // 네비게이터를 가져오지 못할경우
 function geoError() {
-  $weatherContents.forEach(content => content.textContent = '위치 정보를 가져올 수 없습니다.');
+  $weatherContents.forEach(content => {
+    content.textContent = '위치 정보를 가져올 수 없습니다.';
+  });
 }
 // 네비게이터 가져오기
 function askForCoords() {
