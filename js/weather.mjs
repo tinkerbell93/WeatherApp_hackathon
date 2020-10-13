@@ -20,8 +20,10 @@ function geoSuccess(position) {
   const { coords } = position;
   const { latitude, longitude } = coords;
 
-  function getJson(fetchStr) {
-    return fetch(fetchStr)
+  function getJson(fetchStr, str) {
+    return fetch(fetchStr, {
+      credentials: str,
+    })
       .then(res => res.json())
       .then(jsonData => jsonData);
   }
@@ -95,7 +97,7 @@ function geoSuccess(position) {
       $currentOption.selected = true;
     }
     cityRender(cityData);
-    const koreaCityData = await getJson('../json/cityKR.list.json');
+    const koreaCityData = await getJson('../json/cityKR.list.json', 'include');
     $citySelect.addEventListener('change', async ({ target }) => {
       const cityObj = koreaCityData.filter(city => city.name === target.value);
       const { coord } = cityObj[0];
