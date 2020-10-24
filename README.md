@@ -6,11 +6,7 @@
 
 주제 : simple 크롬 확장프로그램 날씨예보 애플리케이션 클론
 
-[🏠 DEMO](https://tinkerbell93.github.io/WeatherApp_hackathon/)
-
-📹 VIDEO
-
-<iframe height="500" src="https://www.youtube.com/embed/QwLIlq60Drk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[🏠 DEMO](https://tinkerbell93.github.io/WeatherApp_hackathon/) | [📹 VIDEO](https://www.youtube.com/embed/QwLIlq60Drk)
 
 ## 목표
 
@@ -37,10 +33,8 @@
   - 현재 위치 - 지역
 
 - 사이드 바
-
   - Hours Display
   - 폰트 수정
-
   - 폰트색상 수정
   - 배경색상 수정
 
