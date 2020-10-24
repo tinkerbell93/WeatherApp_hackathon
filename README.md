@@ -1,4 +1,4 @@
-# WeatherApp_hackathon
+# Weather App Hackathon
 
 팀명 : '3'조
 
@@ -6,77 +6,63 @@
 
 주제 : simple 크롬 확장프로그램 날씨예보 애플리케이션 클론
 
-[clone 사이트](https://chrome.google.com/webstore/detail/simple/ofpamglakelakiehjfhgfcikpponflgi)
+[🏠 DEMO](https://tinkerbell93.github.io/WeatherApp_hackathon/)
 
-[구현 영상](https://www.youtube.com/watch?v=QwLIlq60Drk) 
+📹 VIDEO
 
-![image](https://user-images.githubusercontent.com/62285872/84174356-7b264a00-aab9-11ea-8cb1-ead00e1ea54d.png)
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/QwLIlq60Drk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 목표
 
 1. HTML, CSS 최소화, JS 기능 구현
-2. 시간내에 완성된 페이지 구현 
+2. 시간내에 완성된 페이지 구현
 3. 팀원들간의 깃헙 사용
 4. OpenWeatherMap API 사용
 5. 가독성 있는 코드 작성
 6. 오류 최소화
-
-
 
 ## 구현기능
 
 ### Must
 
 - 시계
+
   - 시간
   - 날짜
   - 요일
-  
+
 - 날씨
+
   - 최저 기온 / 최고 기온
   - 현재 위치 - 지역
-  
+
 - 사이드 바
 
-  - Hours Display 
+  - Hours Display
   - 폰트 수정
 
   - 폰트색상 수정
   - 배경색상 수정
 
-
-
 ### Optional
 
 - 시계
   - 시간대 별로 글자 출력 -> 구현완료
-- 날씨 
+- 날씨
   - 위치 선정
 - 사이드 바
   - 섭씨, 화씨 노출여부
-  - 이미지 업로드로 배경 커스컴 
-
-
+  - 이미지 업로드로 배경 커스컴
 
 ### 사용 API
 
 OpenWeatherMap API
 
-
-
 ## 컨벤션
 
-#### HTML
+#### HTML, CSS
 
 - 네이밍 규칙: 스네이크 케이스
-
-
-
-#### CSS
-
-- 
-
-
 
 #### JS
 
